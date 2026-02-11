@@ -34,7 +34,7 @@ git-swi() {
 
     local LOOKUP_RES="$(
         echo "$BRANCH_RES" \
-            | grep -F "$SEARCH_PHRASE" \
+            | grep "$SEARCH_PHRASE" \
             | cut -c 3-
     )";
 
