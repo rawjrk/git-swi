@@ -10,7 +10,13 @@ git-swi() {
 
     local SEARCH_PHRASE="$1";
     local OPTION_NUMBER="$2";
-    
+
+    local FIRST_CHAR=$(echo "$SEARCH_PHRASE" | cut -c1);
+    if [[ "$FIRST_CHAR" == '-' ]]; then
+        echo "Error: $FIRST_ARG must not start with dash!";
+        return 1;
+    fi;
+
     local OPTION_EXISTS=false;
     if [[ -n "$OPTION_NUMBER" ]]; then
         OPTION_EXISTS=true;
