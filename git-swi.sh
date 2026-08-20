@@ -3,6 +3,11 @@ git-swi() {
     local SECOND_ARG='OPTION_NUMBER';
     local USAGE_MSG="Usage: git-swi $FIRST_ARG [$SECOND_ARG]";
 
+    if [[ $# = 1 && $1 = '--help' ]]; then
+        echo "$USAGE_MSG";
+        return 0;
+    fi;
+
     if [[ $# -lt 1 || $# -gt 2 ]]; then
         echo "$USAGE_MSG";
         return 1;
